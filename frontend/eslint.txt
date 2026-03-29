@@ -1,0 +1,33 @@
+
+D:\Projects\Advanced Image Forgery Detection\frontend\src\components\ImageUploader.jsx
+  25:7  error  Error: Cannot access variable before it is declared
+
+`processFile` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+  23 |     
+  24 |     if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+> 25 |       processFile(e.dataTransfer.files[0]);
+     |       ^^^^^^^^^^^ `processFile` accessed before it is declared
+  26 |     }
+  27 |   }, []);
+  28 |
+
+  34 |   };
+  35 |
+> 36 |   const processFile = (file) => {
+     |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 37 |     // Only accept images
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 38 |     if (!file.type.match('image.*')) {
+     …
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 48 |     reader.readAsDataURL(file);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 49 |   };
+     | ^^^^^ `processFile` is declared here
+  50 |
+  51 |   const clearFile = (e) => {
+  52 |     e.stopPropagation();  react-hooks/immutability
+
+✖ 1 problem (1 error, 0 warnings)
+

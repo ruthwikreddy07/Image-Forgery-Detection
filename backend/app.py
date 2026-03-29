@@ -31,7 +31,7 @@ def detect_forgery_endpoint():
                 "status": "success",
                 "processed_image": f"data:image/jpeg;base64,{processed_base64}",
                 "forgery_count": num_forgeries,
-                "is_forged": num_forgeries > 5  # Simple heuristic threshold
+                "is_forged": num_forgeries >= 4  # Threshold based on vector clustering minimum
             }), 200
         except Exception as e:
             print(f"Error processing image: {e}")
